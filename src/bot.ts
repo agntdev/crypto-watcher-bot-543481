@@ -6,7 +6,27 @@ import { createBot, type BotContext } from "./toolkit/index.js";
 // bot grows. Durable domain data must NOT live here — use the toolkit's
 // persistent storage (see AGENTS.md).
 export interface Session {
-  // example: step?: "awaiting_amount";
+  step?:
+    | "idle"
+    | "menu"
+    | "awaiting_alert_ticker"
+    | "awaiting_alert_type"
+    | "awaiting_threshold_price"
+    | "awaiting_percent_change"
+    | "awaiting_percent_timeframe"
+    | "confirming_alert"
+    | "awaiting_custom_ticker"
+    | "awaiting_settings_time"
+    | "confirming_settings";
+  flowData?: {
+    ticker?: string;
+    alertType?: "threshold" | "percent";
+    thresholdPrice?: number;
+    percentChange?: number;
+    timeframe?: number;
+    settingsKey?: string;
+    settingsValue?: string;
+  };
 }
 
 export type Ctx = BotContext<Session>;
