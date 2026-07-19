@@ -1,0 +1,16 @@
+[
+  {
+    "name": "owner stats dashboard",
+    "steps": [
+      {
+        "send": { "callback": "owner:stats" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": { "text": "📊 Owner Dashboard\n\n👥 Active users: 0\n\n🔔 Top alerts (by fires):\n  No alerts fired yet.\n\n📋 Alerts by type:\n  No data yet.\n\n📜 Recent alert events:\n  No recent events." }
+          }
+        ]
+      }
+    ]
+  }
+]

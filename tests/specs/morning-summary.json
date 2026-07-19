@@ -1,0 +1,16 @@
+[
+  {
+    "name": "empty watchlist shows message for summary",
+    "steps": [
+      {
+        "send": { "callback": "summary:show" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": { "text": "Your watchlist is empty — add coins to see a morning summary." }
+          }
+        ]
+      }
+    ]
+  }
+]

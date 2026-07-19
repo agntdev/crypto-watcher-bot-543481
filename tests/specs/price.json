@@ -1,19 +1,15 @@
 [
   {
-    "name": "/price",
+    "name": "empty watchlist shows message",
     "steps": [
       {
+        "send": { "callback": "price:show" },
         "expect": [
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Show current prices for watchlist or specific ticker"
-            }
+            "method": "editMessageText",
+            "payload": { "text": "Your watchlist is empty — tap 🪙 Watchlist to add some coins." }
           }
-        ],
-        "send": {
-          "text": "/price"
-        }
+        ]
       }
     ]
   }

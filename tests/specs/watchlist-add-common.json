@@ -1,19 +1,52 @@
 [
   {
-    "name": "Add common coin",
+    "name": "empty watchlist prompts user to add coins",
     "steps": [
       {
+        "send": { "callback": "watchlist:add_common" },
         "expect": [
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Add Bitcoin/Ethereum/Toncoin to watchlist"
-            }
+            "method": "editMessageText",
+            "payload": { "text": "Pick coins to add to your watchlist:" }
           }
-        ],
-        "send": {
-          "callback": "watchlist:add_common"
-        }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "add Bitcoin to watchlist",
+    "steps": [
+      {
+        "send": { "callback": "watchlist:add_common" },
+        "expect": [
+          { "method": "editMessageText" }
+        ]
+      },
+      {
+        "send": { "callback": "watchlist:add:bitcoin" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": { "text": "✅ Added Bitcoin to your watchlist." }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "custom ticker flow",
+    "steps": [
+      {
+        "send": { "callback": "watchlist:add_common" },
+        "expect": [
+          { "method": "editMessageText" }
+        ]
+      },
+      {
+        "send": { "callback": "watchlist:custom" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Send me the coin name or ticker symbol (e.g. \"solana\" or \"SOL\"):" } }
+        ]
       }
     ]
   }

@@ -1,19 +1,15 @@
 [
   {
-    "name": "Manage alerts",
+    "name": "empty watchlist shows message for alerts",
     "steps": [
       {
+        "send": { "callback": "alerts:manage" },
         "expect": [
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "View and configure active alerts for watchlist items"
-            }
+            "method": "editMessageText",
+            "payload": { "text": "Your watchlist is empty — add coins first, then set up alerts." }
           }
-        ],
-        "send": {
-          "callback": "alerts:manage"
-        }
+        ]
       }
     ]
   }

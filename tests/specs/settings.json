@@ -1,0 +1,16 @@
+[
+  {
+    "name": "settings shows current settings",
+    "steps": [
+      {
+        "send": { "callback": "settings:show" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": { "text": "⚙️ Your settings:\n\n🔕 Quiet hours: 10:00 PM – 7:00 AM\n📊 Cooldown: 30 min between alerts\n🌅 Morning summary: 08:00" }
+          }
+        ]
+      }
+    ]
+  }
+]
