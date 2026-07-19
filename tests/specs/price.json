@@ -12,5 +12,19 @@
         ]
       }
     ]
+  },
+  {
+    "name": "/price with empty watchlist",
+    "steps": [
+      {
+        "send": { "text": "/price" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": { "text": "Your watchlist is empty — tap 🪙 Watchlist to add some coins." }
+          }
+        ]
+      }
+    ]
   }
 ]
